@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./styles.css";
+import Searchbar from "./Searchbar";
+import CurrentForecast from "./CurrentForecast";
+import WeeklyForecast from "./WeeklyForecast";
+import Footer from "./Footer";
 
-function App() {
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Searchbar />
+      <CurrentForecast />
+      <WeeklyForecast />
+      <Footer />
     </div>
   );
+
 }
 
-export default App;
+

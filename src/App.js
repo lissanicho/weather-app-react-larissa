@@ -11,10 +11,12 @@ import SearchEngine from "./SearchEngine";
 export default function App() {
   return (
     <div className="App">
+      <div className="container">
       <SearchEngine />
-      <CurrentForecast />
+      <CurrentForecast defaultCity="Wellington"/>
       <WeeklyForecast />
       <Footer />
+    </div>
     </div>
   );
 

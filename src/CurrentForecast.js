@@ -4,11 +4,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import "./styles.css";
 
 export default function CurrentForecast(props) {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ready: false});
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
+      ready: true,
       temperature:response.data.main.temp,
       wind:12,
       humidity:response.data.main.humidity,
@@ -17,10 +17,10 @@ export default function CurrentForecast(props) {
       city: response.data.name
     });
     
-    setReady(true);
+  
   }
 
-  if(ready) {return (
+  if(weatherData.ready) {return (
     <div className="container">
 
       <div className="Searchbar">
@@ -68,8 +68,7 @@ export default function CurrentForecast(props) {
      );
 }else {
   const apiKey= "445905dadb3d2b0c6f1b916c9d0e3860";
-  let city = "Wellington";
-  let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
 
   return "loading...";

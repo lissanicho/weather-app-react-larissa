@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormatDate from "./FormatDate";
+import WeatherInfo from "./WeatherInfo";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./styles.css";
 
 export default function CurrentForecast(props) {
   const [weatherData, setWeatherData] = useState({ready: false});
+  
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -18,13 +19,11 @@ export default function CurrentForecast(props) {
       iconUrl: `https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png`,
       city: response.data.name
     });
-    
-  
   }
 
-  if(weatherData.ready) {return (
+  if(weatherData.ready) {
+    return (
     <div className="container">
-
       <div className="Searchbar">
       <div class="row" id="button-row ">
         <div class="col-8">
@@ -38,37 +37,14 @@ export default function CurrentForecast(props) {
             />
             <input type="submit" value="search" />
           </form>
+          <WeatherInfo data={weatherData} />
         </div>
-        <div class="col-4">
-          
         </div>
-      </div>
-      </div>
-      <div className="row" id="current-forecast">
-        <div className="col-md-6">
-          <h1>{weatherData.city}</h1>
-          
-            <p><FormatDate date={weatherData.date} /></p>
-            
-          <h2>
-            <img
-            src={weatherData.iconUrl}
-            alt={weatherData.description}
-            className="float-left"
-            />
-            <span id="temp"> {Math.round(weatherData.temperature)}°C</span>
-          </h2>
-          <p className="text-capitalize" >{weatherData.description}</p> 
         </div>
-        <div className="col-md-6">
-        
-          <p id="humidity">Humidity {weatherData.humidity}%</p>
-          <p id="wind">Wind {weatherData.wind}km/h</p>
         </div>
-      </div>
-  </div>
+       
      );
-}else {
+} else {
   const apiKey= "445905dadb3d2b0c6f1b916c9d0e3860";
   let apiUrl=`http://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
@@ -76,5 +52,4 @@ export default function CurrentForecast(props) {
   return "loading...";
 }
 }
-  
   

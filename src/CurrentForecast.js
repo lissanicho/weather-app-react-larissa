@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormatDate from "./FormatDate";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./styles.css";
 
@@ -9,6 +10,7 @@ export default function CurrentForecast(props) {
     console.log(response.data);
     setWeatherData({
       ready: true,
+      date: new Date(response.data.dt * 1000),
       temperature:response.data.main.temp,
       wind:12,
       humidity:response.data.main.humidity,
@@ -46,7 +48,7 @@ export default function CurrentForecast(props) {
         <div className="col-md-6">
           <h1>{weatherData.city}</h1>
           
-            <p>Day and time</p>
+            <p><FormatDate date={weatherData.date} /></p>
             
           <h2>
             <img

@@ -4,7 +4,7 @@ import "./styles.css";
 import CurrentForecast from "./CurrentForecast";
 import WeeklyForecast from "./WeeklyForecast";
 import Footer from "./Footer";
-import SearchEngine from "./SearchEngine";
+
 
 
 

@@ -7,17 +7,19 @@ import "./styles.css";
 export default function CurrentForecast(props) {
   const [weatherData, setWeatherData] = useState({ready: false});
   const [city, setCity] = useState(props.defaultCity);
+  
   function handleResponse(response) {
     console.log(response.data);
     setWeatherData({
       ready: true,
       date: new Date(response.data.dt * 1000),
       temperature:response.data.main.temp,
-      wind:12,
+      wind:response.data.wind.speed,
       humidity:response.data.main.humidity,
+      icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
-      iconUrl: `https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png`,
-      city: response.data.name
+      city: response.data.name,
+      
     });
   }
 
@@ -40,7 +42,6 @@ setCity(event.target.value);
   if(weatherData.ready) {
     return (
     <div className="container">
-      <div className="Searchbar">
       <div class="row" id="button-row ">
         <div class="col-8">
           <form onSubmit={handleSubmit} id="search-form">
@@ -57,9 +58,7 @@ setCity(event.target.value);
           <WeatherInfo data={weatherData} />
         </div>
         </div>
-        </div>
-        </div>
-       
+        </div>       
      );
 } else {
   search();

@@ -6,8 +6,9 @@ export default function Footer() {
       <p>
         <a
           id="source-link"
-          href="https://github.com/lissanicho/my-weather-app"
+          href="https://github.com/lissanicho/weather-app-react-larissa"
           target="_blank"
+          rel="noreferrer"
         >
           Open source code{" "}
         </a>

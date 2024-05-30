@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
+import WeeklyForecast from "./WeeklyForecast";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./styles.css";
 
@@ -56,6 +57,7 @@ setCity(event.target.value);
             <input type="submit" value="search" />
           </form>
           <WeatherInfo data={weatherData} />
+          <WeeklyForecast />
         </div>
         </div>
         </div>       

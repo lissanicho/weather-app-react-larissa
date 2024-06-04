@@ -20,6 +20,7 @@ export default function CurrentForecast(props) {
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
       city: response.data.name,
+      coordinates: response.data.coord,
       
     });
   }
@@ -57,7 +58,7 @@ setCity(event.target.value);
             <input type="submit" value="search" />
           </form>
           <WeatherInfo data={weatherData} />
-          <WeeklyForecast />
+          <WeeklyForecast coordinates={weatherData.coordinates}/>
         </div>
         </div>
         </div>       

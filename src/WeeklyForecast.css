@@ -1,6 +1,10 @@
 .WeatherForecast {
     text-align:center;
 }
+.WeeklyForecast{
+        padding-top:30px;
+    }
+
 .forecast-minimum {
     color:grey;
     opacity: 0.6;

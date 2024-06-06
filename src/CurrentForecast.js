@@ -45,7 +45,7 @@ setCity(event.target.value);
     return (
     <div className="container">
       <div class="row" id="button-row ">
-        <div class="col-8">
+        <div class="col">
           <form onSubmit={handleSubmit} id="search-form">
             <input
               type="text"

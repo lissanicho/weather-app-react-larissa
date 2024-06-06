@@ -1,7 +1,11 @@
 .WeatherForecast {
     text-align:center;
 }
+.forecast-minimum {
+    color:grey;
+    opacity: 0.6;
+}
 
-.Forecast-minimum {
-    
+.forecast-maximum {
+    color:grey;
 }

@@ -35,3 +35,24 @@ a {
     padding: 5px;
 }
 
+#cityName{
+    text-align: center;
+}
+#description{
+    padding-top:50px;
+}
+
+#footer-text{
+    padding-top:15px;
+    line-height: 0.8;
+}
+
+#footer-source-link{
+    color: yellow;
+    
+}
+
+.current-time{
+    color: grey;
+}
+

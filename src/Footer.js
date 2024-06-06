@@ -3,15 +3,15 @@ import React from "react";
 export default function Footer() {
   return (
     <div>
-      <p>
+      <p id="footer-text">
         <a
-          id="source-link"
+          id="footer-source-link"
           href="https://github.com/lissanicho/weather-app-react-larissa"
           target="_blank"
           rel="noreferrer"
         >
           Open source code{" "}
-        </a>
+        </a><br />
         by Larissa Nicholson
       </p>
     </div>

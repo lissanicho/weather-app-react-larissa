@@ -2,7 +2,6 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./styles.css";
 import CurrentForecast from "./CurrentForecast";
-import WeeklyForecast from "./WeeklyForecast";
 import Footer from "./Footer";
 
 
@@ -14,7 +13,7 @@ export default function App() {
       <div className="container">
     
       <CurrentForecast defaultCity="Wellington" />
-      <WeeklyForecast />
+      
       <Footer />
     </div>
     </div>
